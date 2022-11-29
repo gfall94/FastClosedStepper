@@ -1,6 +1,6 @@
-// MultiClosedStepper.cpp
+// FastMultiClosedStepper.cpp
 //
-// Copyright (C) 2019 Yossi Mosbacher
+// Copyright (C) 2022 Christian Gfall
 
 
 #include "MultiClosedStepper.h"
