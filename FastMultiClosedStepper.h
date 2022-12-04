@@ -1,7 +1,7 @@
-// MultiStepper.h
+// FastMultiStepper.h
 
-#ifndef MultiStepper_h
-#define MultiStepper_h
+#ifndef FastMultiStepper_h
+#define FastMultiStepper_h
 
 #include <stdlib.h>
 #if ARDUINO >= 100
@@ -11,21 +11,21 @@
 #include <wiring.h>
 #endif
 
-#define CLOSEDSTEPPER_MAX_STEPPERS 10
+#define CLOSEDSTEPPER_MAX_STEPPERS 3
 
-class ClosedStepper;
+class FastClosedStepper;
 
-class MultiClosedStepper
+class FastMultiClosedStepper
 {
 public:
     /// Constructor
-    MultiClosedStepper();
+    FastMultiClosedStepper();
 
     /// Add a stepper to the set of managed steppers
-    /// There is an upper limit of MULTISTEPPER_MAX_STEPPERS = 10 to the number of steppers that can be managed
+    /// There is an upper limit of MULTISTEPPER_MAX_STEPPERS = 3 to the number of steppers that can be managed
     /// \param[in] stepper Reference to a stepper to add to the managed list
     /// \return true if successful. false if the number of managed steppers would exceed MULTISTEPPER_MAX_STEPPERS
-    boolean addStepper(ClosedStepper& stepper);
+    boolean addStepper(FastClosedStepper& stepper);
 
     /// Set the target positions of all managed steppers 
     /// according to a coordinate array.
@@ -52,15 +52,12 @@ public:
 private:
     /// Array of pointers to the steppers we are controlling.
     /// Fills from 0 onwards
-    ClosedStepper* _steppers[CLOSEDSTEPPER_MAX_STEPPERS];
+    FastClosedStepper* _steppers[CLOSEDSTEPPER_MAX_STEPPERS];
 
     /// Number of steppers we are controlling and the number
     /// of steppers in _steppers[]
     uint8_t       _num_steppers;
 };
 
-/// @example MultiStepper.pde
-/// Use MultiStepper class to manage multiple steppers and make them all move to 
-/// the same position at the same time for linear 2d (or 3d) motion.
 
 #endif

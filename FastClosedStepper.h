@@ -18,7 +18,7 @@ class Encoder;
 
 class FastClosedStepper {
   public:
-    FastClosedStepper::FastClosedStepper(uint8_t enc_pin1, uint8_t enc_pin2, uint8_t step_pin, uint8_t en_pin, uint8_t dir_pin);
+    FastClosedStepper(uint8_t enc_pin1, uint8_t enc_pin2, uint8_t step_pin, uint8_t en_pin, uint8_t dir_pin);
     void init();
     void setTarget(long target);
     long getTarget();
