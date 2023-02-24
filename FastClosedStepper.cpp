@@ -122,8 +122,6 @@ bool FastClosedStepper::run(){
     closeLoop();
     if (_failed) return false;
   }
-    // Serial.println(abs(distanceToGo()));
-  // if (!_stepper->moveTo(_currentTarget)) {
   if (_maxError<abs(distanceToGo())) {
     _updateCount++;
     return true; 
